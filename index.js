@@ -50,13 +50,20 @@ const rocky = {
 //"Your grand total is ${finalAmount}." 
 
 //create a fuction calculating the refill total
-function refillTotal(pricePerRefill,refills){
-    return pricePerRefill * refills;
-}
+
+//function keyword
+// function refillTotal(pricePerRefill,refills){
+//     return pricePerRefill * refills;
+// }
+
+//arrow function
+const refillTotal = (pricePerRefill, refills) => pricePerRefill *refills;
 
 //create a subscription function
 // the customer will receive a 25% discount 
 //after the refill total has been calculated.
+
+//function keyword
 function hasSubscription(customer){
     const totalAmount = refillTotal
     (customer.pricePerRefill, customer.refills);
@@ -67,10 +74,33 @@ function hasSubscription(customer){
     }
 }
 
+//arrow function 
+//const hasSubscribtion = customer => {
+//     const totalAmount = refillTotal
+//     (customer.pricePerRefill, customer.refills);
+//     if(customer.subscription=== true){
+//         return totalAmount - (totalAmount * .25);
+//     }else {
+//         return totalAmount;
+//     }
+// }
+
+
 //create coupon funciton
 //the customer will receive a $10 discount 
 //after the subscription discount has been calculated
-function hasCoupon(customer){
+
+//function keyword
+// function hasCoupon(customer){
+//     const subcriptonAmount = hasSubscription(customer);
+//     if(customer.coupon === true){
+//         return subcriptonAmount - 10;
+//     } else{
+//         return subcriptonAmount;
+//     }
+// }
+
+const hasCoupon = customer => {
     const subcriptonAmount = hasSubscription(customer);
     if(customer.coupon === true){
         return subcriptonAmount - 10;
@@ -83,6 +113,7 @@ function hasCoupon(customer){
 //and coupon
 //return string 
 
+//function keyword
 function checkout(customer){
     if(customer.subscription === true){
         return hasSubscription(customer);
@@ -92,10 +123,28 @@ function checkout(customer){
         return refillTotal(pricePerRefill,refills);
     }
 }
+
+//arrow function
+// const checkout = customer => {
+//     if(customer.subscription === true){
+//         return hasSubscription(customer);
+//     } else if(customer.coupon === true){
+//         return hasCoupon(customer);
+//     } else{
+//         return refillTotal(pricePerRefill,refills);
+//     }
+// }
+
+
 ////return string with grand total amount for each customer
-function grandTotal(customer){
-    return console.log("Your grand total is $" + checkout(customer));
-}
+
+//fuction keyword
+// function grandTotal(customer){
+//     return console.log("Your grand total is $" + checkout(customer));
+// }
+
+//arrow function
+const grandTotal = customer => console.log("Your grand total is $" + checkout(customer));
 
 grandTotal(timmy);
 
