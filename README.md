@@ -3,7 +3,7 @@
 ## overview
 You have been hired by a pharmaceutical startup as a junior developer. Things are busy and they need you to start right away. To encourage customer retention, they have been reworking their checkout system to include two different types of discounts.
 
-## customer refills
+## customer discounts
 Using the following criteria, your first assignment is to create the logic for their checkout system that returns the total cost of all refills including if the customer has a subscription and/or a coupon.
 
 If a customer has a subscription, the customer will receive a 25% discount after the refill total has been calculated.
