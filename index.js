@@ -55,43 +55,52 @@ function refillTotal(pricePerRefill,refills){
 }
 
 //create a subscription function
-function subscription(customer){
+// the customer will receive a 25% discount 
+//after the refill total has been calculated.
+function hasSubscription(customer){
+    const totalAmount = refillTotal
+    (customer.pricePerRefill, customer.refills);
     if(customer.subscription=== true){
-        return refillTotal - (refillTotal * .25);
+        return totalAmount - (totalAmount * .25);
     }else {
-        return refillTotal;
+        return totalAmount;
     }
 }
 
 //create coupon funciton
-function coupon(customer){
+//the customer will receive a $10 discount 
+//after the subscription discount has been calculated
+function hasCoupon(customer){
+    const subcriptonAmount = hasSubscription(customer);
     if(customer.coupon === true){
-        return subscription - 10;
+        return subcriptonAmount - 10;
     } else{
-        return subscription;
+        return subcriptonAmount;
     }
 }
 //create checkout function
 //to help filter the subcripton
-//coupon
+//and coupon
 //return string 
 
 function checkout(customer){
     if(customer.subscription === true){
-        return subscription(customer);
+        return hasSubscription(customer);
     } else if(customer.coupon === true){
-        return coupon(customer);
-    } else {
+        return hasCoupon(customer);
+    } else{
         return refillTotal(pricePerRefill,refills);
     }
-    return ("Your grand total is $(finalAmount)");
+}
+////return string with grand total amount for each customer
+function grandTotal(customer){
+    return console.log("Your grand total is $" + checkout(customer));
 }
 
-const timmyTotal = checkout(timmy);
-console.log(timmyTotal);
+grandTotal(timmy);
 
-const sarahTotal = checkout(sarah);
-console.log(sarahTotal);
+grandTotal(sarah);
 
-const rockyTotal = checkout(rocky);
-console.log(rockyTotal);
+grandTotal(rocky);
+
+
