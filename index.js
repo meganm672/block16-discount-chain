@@ -112,6 +112,8 @@ const hasCoupon = customer => {
 //to help filter the subcripton
 //and coupon
 //return string 
+//you should return and log the string 
+//"Your grand total is ${finalAmount}." 
 
 //function keyword
 function checkout(customer){
@@ -137,6 +139,8 @@ function checkout(customer){
 
 
 ////return string with grand total amount for each customer
+//you should return and log the string 
+//"Your grand total is ${finalAmount}." 
 
 //fuction keyword
 // function grandTotal(customer){
@@ -144,7 +148,7 @@ function checkout(customer){
 // }
 
 //arrow function
-const grandTotal = customer => console.log("Your grand total is $" + checkout(customer));
+const grandTotal = customer => console.log(`Your grand total is $${checkout(customer)}`);
 
 grandTotal(timmy);
 
